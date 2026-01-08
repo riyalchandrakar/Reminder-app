@@ -1,0 +1,79 @@
+<div class="app">
+
+  <!-- 🔴 Live Clock -->
+  <div class="clock-card" (click)="toggleFastMode()">
+    <div class="clock-time">
+      ⏰ {{ time$ | async | date:'HH:mm:ss' }}
+    </div>
+    <div class="clock-hint">Tap to fast-forward</div>
+  </div>
+
+  <!-- Main Layout -->
+  <div class="main-layout">
+
+    <!-- LEFT: Add Reminder -->
+    <div class="left-panel card">
+
+      <h3 class="panel-title">Add Reminder</h3>
+
+      <!-- Reminder text -->
+      <input
+        class="text-input"
+        type="text"
+        placeholder="What should I remind you?"
+        [(ngModel)]="reminderText"
+      />
+
+      <!-- Time Picker (Option 1: Native + UX polish) -->
+      <div class="time-section">
+
+        <label class="time-label">⏱ Set Reminder Time</label>
+
+        <div class="time-field">
+          <span class="time-icon">⏱</span>
+          <input
+            type="datetime-local"
+            [(ngModel)]="reminderTime"
+          />
+        </div>
+
+        <!-- Selected time preview -->
+        <div class="time-preview" *ngIf="reminderTime">
+          Selected: {{ reminderTime | date:'dd MMM yyyy, HH:mm' }}
+        </div>
+
+        <!-- Helper text -->
+        <div class="time-helper">
+          Choose date & time for your reminder
+        </div>
+
+      </div>
+
+      <button class="add-btn" (click)="addReminder()">
+        Add Reminder
+      </button>
+
+    </div>
+
+    <!-- RIGHT: Reminder List -->
+    <div class="right-panel">
+
+      <h3 class="panel-title">Your Reminders</h3>
+
+      <div class="list-container">
+        <ul class="list">
+          <li *ngFor="let r of reminders"
+              [class.completed]="isCompleted(r, (time$ | async)!)">
+
+            <div class="list-text">{{ r.text }}</div>
+            <div class="list-time">{{ r.time | date:'dd MMM, HH:mm' }}</div>
+
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

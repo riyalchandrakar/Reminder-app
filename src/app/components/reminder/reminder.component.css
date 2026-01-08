@@ -1,0 +1,201 @@
+/* 🔑 Global fix to prevent overflow everywhere */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* App wrapper */
+.app {
+  width: 900px;
+  margin: 40px auto;
+  font-family: system-ui, -apple-system, Segoe UI, sans-serif;
+}
+
+/* 🔴 Clock card */
+.clock-card {
+  background: linear-gradient(135deg, #ff6a6a, #ffb26b);
+  border-radius: 18px;
+  padding: 18px;
+  color: white;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  cursor: pointer;
+  margin-bottom: 24px;
+}
+
+.clock-time {
+  font-size: 34px;
+  font-weight: 700;
+}
+
+.clock-hint {
+  font-size: 12px;
+  opacity: 0.85;
+}
+
+/* Main layout */
+.main-layout {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+/* Panels */
+.left-panel {
+  width: 35%;
+  overflow: hidden;
+}
+
+.right-panel {
+  width: 65%;
+}
+
+/* Card */
+.card {
+  background: white;
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+/* Titles */
+.panel-title {
+  margin: 0 0 14px;
+  font-size: 16px;
+}
+
+/* Reminder text input */
+.text-input {
+  width: 100%;
+  max-width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  margin-bottom: 14px;
+  outline: none;
+}
+
+/* Time section */
+.time-section {
+  margin-bottom: 18px;
+}
+
+.time-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+/* Time field */
+.time-field {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid #3cb371;
+  background: #eafff3;
+  border-radius: 12px;
+  padding: 10px 12px;
+}
+
+.time-icon {
+  font-size: 18px;
+  color: #2e8b57;
+  flex-shrink: 0;
+}
+
+.time-field input {
+  border: none;
+  background: transparent;
+  font-size: 14px;
+  width: 100%;
+  outline: none;
+  cursor: pointer;
+}
+
+/* Preview & helper */
+.time-preview {
+  font-size: 12px;
+  color: #444;
+  margin-top: 6px;
+}
+
+.time-helper {
+  font-size: 11px;
+  color: #777;
+  margin-top: 2px;
+}
+
+/* Add button */
+.add-btn {
+  width: 100%;
+  padding: 12px;
+  border-radius: 14px;
+  border: none;
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Reminder list */
+.list-container {
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.list li {
+  background: white;
+  border-radius: 14px;
+  padding: 14px 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Text safety */
+.list-text {
+  font-size: 14px;
+  line-height: 1.4;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+.list-time {
+  font-size: 12px;
+  color: #777;
+}
+
+/* Completed */
+.completed {
+  opacity: 0.6;
+  text-decoration: line-through;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .app {
+    width: 95%;
+  }
+
+  .main-layout {
+    flex-direction: column;
+  }
+
+  .left-panel,
+  .right-panel {
+    width: 100%;
+  }
+}
