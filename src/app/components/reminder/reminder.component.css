@@ -16,7 +16,7 @@
 .clock-card {
   background: linear-gradient(135deg, #ff6a6a, #ffb26b);
   border-radius: 18px;
-  padding: 18px;
+  padding: 36px;
   color: white;
   text-align: center;
   box-shadow: 0 10px 25px rgba(0,0,0,0.15);
@@ -30,6 +30,7 @@
 }
 
 .clock-hint {
+  padding-top: 15px;
   font-size: 12px;
   opacity: 0.85;
 }
